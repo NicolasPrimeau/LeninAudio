@@ -51,18 +51,25 @@ def _submit_song():
 @app.route("/_get_song_listing.json", methods=["GET"])
 def _get_song_listing():
     client = MongoClient()
-    print("db access?")
     coll = client[configurations.DB.NAME][configurations.DB.COLLECTIONS.SONGS]
     songs = dict()
-    songs['songs'] = sanitize_song(list(coll.find({}).sort("upvotes", -1)))
-    print(songs)
+    songs['songs'] = sanitize_songs(list(coll.find({}).sort("upvotes", -1)))
     return str(songs).replace("'", '"')
+
 
 @app.route("/_get_playlist_listing.json", methods=['GET'])
 def _get_playlist_listing():
     songs = dict()
-    songs['songs'] = sanitize_song(playlist.song_list)
+    songs['songs'] = sanitize_songs(playlist.song_list)
     return str(songs).replace("'", '"')
+
+
+@app.route("/_get_currenty_playing.json", methods=["GET"])
+def _get_currently_playing():
+    if playlist.get_currently_playing() is not None:
+        return str(sanitize_song(playlist.get_currently_playing())).replace("'", '"')
+    else:
+        return str({}).replace("'", '"')
 
 
 @app.route("/_upvote_song", methods=["POST"])
@@ -81,15 +88,19 @@ def _downvote_song():
     return json.dumps({"code" : 200})
 
 
-def sanitize_song(song_list):
+def sanitize_songs(song_list):
     new_list = list()
     for song in song_list:
-        new_song = copy.deepcopy(song)
-        del new_song['_id']
-        new_song['title'] = string.capwords(song['title'])
-        new_song['artist'] = string.capwords(song['artist'])
-        new_list.append(new_song)
+        new_list.append(sanitize_song(song))
     return new_list
+
+
+def sanitize_song(song):
+    new_song = copy.deepcopy(song)
+    del new_song['_id']
+    new_song['title'] = string.capwords(song['title'])
+    new_song['artist'] = string.capwords(song['artist'])
+    return new_song
 
 if __name__ == "__main__":
     playlist_t = threading.Thread(target=continuous_play)

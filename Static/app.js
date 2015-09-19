@@ -37,7 +37,17 @@ $(document).ready(function(){
             for (i = 0; i<songs.length; i+=1) {
                 $(".play_list").append("<div class='song-container'><p class='upvotes'>" + songs[i]["upvotes"] + "</p><p class='artist'>" + songs[i]["artist"] + "</p><p class='title'>" + songs[i]["title"] + "</p></div>");
             }
+        });
+    }
 
+    function updatePlayer() {
+        var x = $.get( "/_get_currently_playing.json", function(song) {
+            $(".player").empty();
+            song = $.parseJSON(song);
+            if song.isEmptyObject():
+                $(".player").append("<div class='song-info'><p class='message'>Nothing currently playing. Go ahead, suggest something!</p></div>")
+            else:
+                $(".player").append("<div class='song-info'><p class='upvotes'>" + song["upvotes"] + "</p><p class='artist'>" + song["artist"] + "</p><p class='title'>" + song["title"] + "</p></div>")
         });
     }
 
@@ -72,10 +82,15 @@ $(document).ready(function(){
 
     updateListing()
     updatePlaylist()
+    updatePlayer()
 
     setInterval(function(){
         updateListing()
     },30*1000);
+
+    setInterval(function(){
+        updatePlayer()
+    },5*1000);
 
     setInterval(function(){
         updatePlaylist()

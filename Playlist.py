@@ -54,5 +54,8 @@ class Playlist:
             return True
         return False
 
+    def get_currently_playing(self):
+        return self.audioPlayer.song
+
     def is_initial(self):
         return self.audioPlayer.is_initial()
