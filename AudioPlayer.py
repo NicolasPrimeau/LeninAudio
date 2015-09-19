@@ -59,7 +59,7 @@ class AudioPlayer:
             return True
         elif self.state == States.INITIAL:
             return False
-        elif self.mplayer.poll() is None:
+        elif self.mplayer.poll() is not None:
             self.state = States.STOPPED
 
         return self.state == States.STOPPED
