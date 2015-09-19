@@ -111,6 +111,9 @@ div.field {
     width: 50%;
     padding-top: 10px;
     padding-bottom: 10px;
+}
+
+.rankings .ranking-wrapper .ranking {
     overflow-y: auto;
     max-height: 700px;
 }
