@@ -130,3 +130,26 @@ div.field {
     width: 25%;
     padding: 1%;
 }
+
+.player {
+
+}
+
+.song-info {
+    margin: 5% auto;
+    background-color:rgba(0, 0, 0, 0.70);
+}
+
+.song-info p {
+    font-size: 22px;
+}
+
+.song-info .upvotes {
+    width:5%;
+    padding 1%;
+}
+
+.song-info .artist, .song-info .title {
+    width:25%;
+    padding: 1%;
+}
