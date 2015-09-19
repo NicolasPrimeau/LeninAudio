@@ -38,7 +38,7 @@ class Playlist:
         new_list = dict()
         now = int(time.time())
         for song in self.recently_played:
-            if (now - song['last_played']) < self.RECENTLY_PLAYED_TIMEOUT_SEC:
+            if (now - self.recently_played[song]['last_played']) < self.RECENTLY_PLAYED_TIMEOUT_SEC:
                 new_list[song] = self.recently_played[song]
         self.recently_played = new_list
 
