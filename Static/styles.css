@@ -5,6 +5,18 @@ div, form, p {
     width:100%;
 }
 
+body {
+    float: left;
+    width: 100%;
+    margin: 0;
+    height: 100%;
+}
+
+p, h3, h4 {
+    color: white;
+    size: 20px;
+}
+
 .header h3 {
     font-size: 40px;
     text-align:center;
@@ -12,11 +24,20 @@ div, form, p {
     padding-bottom: 10px;
 }
 
+html {
+    margin: 0;
+}
+
+.entire-thing {
+    background-image: url("/static/background.jpg");
+    min-height: 100%;
+
+}
+
 .header h4 {
     font-size: 20px;
     text-align:center;
     margin:0;
-    color: #686868 ;
 }
 
 div.field {
@@ -43,6 +64,10 @@ div.field {
     padding:5px;
 }
 
+.form-add-song-message {
+    text-align: center;
+}
+
 .song_vote_ranking img {
     width: 100%;
     float:left;
@@ -50,7 +75,9 @@ div.field {
 }
 
 .song_vote_ranking {
-    padding :10px;
+    margin :2%;
+    width: 96%;
+    background-color:rgba(0, 0, 0, 0.70);
 }
 
 .song_vote_ranking .upvotes {
@@ -59,7 +86,7 @@ div.field {
 }
 
 .song-info{
-    padding-top: 6%;
+    padding-top: 5%;
     width: 92%;
 }
 
@@ -83,10 +110,14 @@ div.field {
     width: 50%;
     padding-top: 10px;
     padding-bottom: 10px;
+    overflow-y: auto;
+    max-height: 700px;
 }
 
 .song-container {
-    padding:5%;
+    margin :2%;
+    width: 96%;
+    background-color:rgba(0, 0, 0, 0.70);
 }
 
 .song-container .upvotes {

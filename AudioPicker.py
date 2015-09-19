@@ -27,7 +27,7 @@ def continuous_play():
 def update_playlist():
     while True:
         playlist.update_song_list()
-        time.sleep(10)
+        time.sleep(60*1)
 
 
 app = Flask(__name__)
@@ -52,8 +52,33 @@ def _get_song_listing():
     coll = client[configurations.DB.NAME][configurations.DB.COLLECTIONS.SONGS]
     songs = dict()
     songs['songs'] = sanitize_song(list(coll.find({}).sort("upvotes", 1)))
+    songs['songs'] = sort(songs['songs'])
     return str(songs).replace("'", '"')
 
+
+def sort(sortable):
+    new = dict()
+    for song in sortable:
+        if int(song['upvotes']) not in new:
+            new[int(song['upvotes'])] = list()
+        new[int(song['upvotes'])].append(song)
+
+    maxi = 0
+    mini = 0
+    for index in new:
+        if index > maxi:
+            maxi = index
+        if index < mini:
+            mini = index
+
+    sortd = list()
+    while maxi >= mini:
+        for song in new[maxi]:
+            sortd.append(song)
+        maxi -= 1
+        while maxi not in new and maxi > mini:
+            maxi -= 1
+    return sortd
 
 @app.route("/_get_playlist_listing.json", methods=['GET'])
 def _get_playlist_listing():
@@ -95,4 +120,4 @@ if __name__ == "__main__":
     update_t = threading.Thread(target=update_playlist)
     update_t.daemon = True
     update_t.start()
-    app.run()
+    app.run(port=5000)
