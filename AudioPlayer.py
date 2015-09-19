@@ -26,13 +26,13 @@ class AudioPlayer:
     def play(self, song=None):
         if self.state == States.INITIAL or self.state == States.STOPPED:
             self.song = song
-            index = configurations.BUFFERED_TEMP_FILE_PREFIX + "-" + self.song['artist'] + "-" + self.song['title']
+            index = configurations.BUFFERED_TEMP_LOCATION+ "-" + self.song['artist'] + "-" + self.song['title']
             available = list(glob.glob(index + "*"))
             if len(available) > 0:
                 location = available.pop(0)
             else:
                 stream = pafy.new(song['youtube_link']).getbestaudio()
-                location = configurations.BUFFERED_TEMP_LOCATION+"."+stream.extension
+                location = index+"."+stream.extension
                 stream.download(filepath=location)
             self.mplayer = Popen(["mplayer", "-slave", "-really-quiet", location], stdin=PIPE)
             self.startup = int(time.time())
