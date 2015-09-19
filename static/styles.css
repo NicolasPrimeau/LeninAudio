@@ -136,7 +136,7 @@ div.field {
 }
 
 .player .song-info {
-    margin: 5% auto;
+    margin: auto 5%;
     background-color:rgba(0, 0, 0, 0.70);
 }
 
