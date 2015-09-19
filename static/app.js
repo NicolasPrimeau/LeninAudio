@@ -36,7 +36,7 @@ $(document).ready(function(){
             songs = $.parseJSON(songs);
             songs = songs["songs"]
             for (i = 0; i<songs.length; i+=1) {
-                $(".play_list").append("<div class='song-container'><p class='upvotes'>" + songs[i]["upvotes"] + "</p><p class='artist'>" + songs[i]["artist"] + "</p><p class='title'>" + songs[i]["title"] + "</p></div>");
+                $(".play_list").append("<div class='song-container'><p class='upvotes'>" + songs[i]["upvotes"] + "</p><p class='artist'>" + songs[i]["title"] + "</p><p class='title'>" + songs[i]["artist"] + "</p></div>");
             }
         });
     }
@@ -50,7 +50,7 @@ $(document).ready(function(){
                 $(".player").append("<div class='song-info'><p class='message'>Nothing currently playing. Go ahead, suggest something!</p></div>")
             }
             else{
-                $(".player").append("<div class='song-info'><p class='upvotes'>" + song["upvotes"] + "</p><p class='artist'>" + song["artist"] + "</p><p class='title'>" + song["title"] + "</p></div>")
+                $(".player").append("<div class='song-info'><p class='upvotes'>" + song["upvotes"] + "</p><p class='artist'>" + song["title"] + "</p><p class='title'>" + song["artist"] + "</p></div>")
             }
 
         });
