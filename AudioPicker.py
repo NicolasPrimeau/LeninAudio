@@ -51,36 +51,12 @@ def _submit_song():
 @app.route("/_get_song_listing.json", methods=["GET"])
 def _get_song_listing():
     client = MongoClient()
+    print("db access?")
     coll = client[configurations.DB.NAME][configurations.DB.COLLECTIONS.SONGS]
     songs = dict()
-    songs['songs'] = sanitize_song(list(coll.find({}).sort("upvotes", 1)))
-    songs['songs'] = sort(songs['songs'])
+    songs['songs'] = sanitize_song(list(coll.find({}).sort("upvotes", -1)))
+    print(songs)
     return str(songs).replace("'", '"')
-
-
-def sort(sortable):
-    new = dict()
-    for song in sortable:
-        if int(song['upvotes']) not in new:
-            new[int(song['upvotes'])] = list()
-        new[int(song['upvotes'])].append(song)
-
-    maxi = 0
-    mini = 0
-    for index in new:
-        if index > maxi:
-            maxi = index
-        if index < mini:
-            mini = index
-
-    sortd = list()
-    while maxi >= mini:
-        for song in new[maxi]:
-            sortd.append(song)
-        maxi -= 1
-        while maxi not in new and maxi > mini:
-            maxi -= 1
-    return sortd
 
 @app.route("/_get_playlist_listing.json", methods=['GET'])
 def _get_playlist_listing():
