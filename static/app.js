@@ -95,7 +95,7 @@ $(document).ready(function(){
 
     setInterval(function(){
         updatePlayer()
-    },5*1000);
+    },5*100000000);
 
     setInterval(function(){
         updatePlaylist()
