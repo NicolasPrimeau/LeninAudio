@@ -64,7 +64,7 @@ def _get_playlist_listing():
     return str(songs).replace("'", '"')
 
 
-@app.route("/_get_currenty_playing.json", methods=["GET"])
+@app.route("/_get_currently_playing.json", methods=["GET"])
 def _get_currently_playing():
     if playlist.get_currently_playing() is not None:
         return str(sanitize_song(playlist.get_currently_playing())).replace("'", '"')
