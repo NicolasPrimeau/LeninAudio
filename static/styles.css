@@ -147,9 +147,11 @@ div.field {
 .player .song-info .upvotes {
     width:5%;
     padding 1%;
+    margin: 0
 }
 
 .player .song-info .artist, .player .song-info .title {
     width:25%;
     padding: 1%;
+    margin: 0;
 }
