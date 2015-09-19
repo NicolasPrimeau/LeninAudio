@@ -8,6 +8,7 @@ $(document).ready(function(){
             success: function(response) {
                 $(".form-add-song-message").empty()
                 $(".form-add-song-message").append("<p>Song added ! (or was it already there?)</p>")
+                updateListing();
             },
             error: function(error) {
                 $(".form-add-song-message").empty()
