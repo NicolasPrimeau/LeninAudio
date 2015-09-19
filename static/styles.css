@@ -43,24 +43,30 @@ html {
 
 div.field {
     float: left;
-    width: auto;
+    width: 37%;
+    padding: 1%;
+}
+
+div.field.button {
+    float: left;
+    width: 20%;
     padding: 1%;
 }
 
 .add-song {
-    width:775px;
-    margin-left:28%;
+    width:50%;
+    margin-left:25%;
 }
 
 .add-song input {
-    padding: 5px;
-    width: 300px;
+    padding: 1%;
+    width: 97%;
     font-size: 20px;
 }
 
 .add-song button {
-    padding: 5px;
-    width: 100px;
+    padding: 2%;
+    width: 100%;
     font-size:20px;
 
 }
