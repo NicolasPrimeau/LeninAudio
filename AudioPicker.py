@@ -122,4 +122,4 @@ if __name__ == "__main__":
     update_t = threading.Thread(target=update_playlist)
     update_t.daemon = True
     update_t.start()
-    app.run(host="0.0.0.0", port=80)
+    app.run(host="0.0.0.0", port=5000)
