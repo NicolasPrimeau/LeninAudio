@@ -23,7 +23,7 @@ $(document).ready(function(){
             songs = $.parseJSON(songs);
             songs = songs["songs"];
             for (i = 0; i<songs.length; i+=1) {
-                $(".vote_list").append("<div class='song_vote_ranking'><div class='upvote-div'><div class='upvote-arrow'><img src='/static/upvote.png'></div><div class='downvote-arrow'><img src='/static/downvote.png'></div></div><div class='song-info'><p class='upvotes'>" + songs[i]["upvotes"] + "</p><p class='artist'>" + songs[i]["artist"] + "</p><p class='title'>" + songs[i]["title"] + "</p></div></div>");
+                $(".vote_list").append("<div class='song_vote_ranking'><div class='upvote-div'><div class='upvote-arrow'><img src='/static/upvote.png'></div><div class='downvote-arrow'><img src='/static/downvote.png'></div></div><div class='song-info'><p class='upvotes'>" + songs[i]["upvotes"] + "</p><p class='artist'>" + songs[i]["title"] + "</p><p class='title'>" + songs[i]["artist"] + "</p></div></div>");
             }
 
 
