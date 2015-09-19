@@ -46,13 +46,13 @@ $(document).ready(function(){
             $(".player").empty();
             song = $.parseJSON(song);
             console.log(song)
-            if (song.isEmptyObject()) {
+            if ($.isEmptyObject(song)) {
                 $(".player").append("<div class='song-info'><p class='message'>Nothing currently playing. Go ahead, suggest something!</p></div>")
             }
             else{
                 $(".player").append("<div class='song-info'><p class='upvotes'>" + song["upvotes"] + "</p><p class='artist'>" + song["artist"] + "</p><p class='title'>" + song["title"] + "</p></div>")
             }
-            
+
         });
     }
 
