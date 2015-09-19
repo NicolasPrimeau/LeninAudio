@@ -14,7 +14,7 @@ body {
 
 p, h3, h4 {
     color: white;
-    size: 20px;
+    font-size: 16px;
 }
 
 .header h3 {
@@ -132,14 +132,16 @@ div.field {
 }
 
 .player {
-
+    width: 40%;
+    margin-left: 30%;
+    margin-right: 30%;
 }
 
 .player .song-info {
     margin-left:auto;
     margin-right:auto;
     padding: 10px;
-    background-color:rgba(0, 0, 0, 0.70);
+    background-color:rgba(30, 144, 255, 0.70);
 }
 
 .player .song-info p {
@@ -148,12 +150,12 @@ div.field {
 
 .player .song-info .upvotes {
     width:5%;
-    padding 1%;
+    padding: 1%;
     margin: 0;
 }
 
 .player .song-info .artist, .player .song-info .title {
-    width:25%;
+    width:40%;
     padding: 1%;
     margin: 0;
 }
