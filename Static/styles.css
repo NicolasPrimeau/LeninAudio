@@ -1,0 +1,57 @@
+
+
+div, form, p {
+    float:left;
+    width:100%;
+}
+
+div.field {
+    float: left;
+    width:31%;
+    padding: 1%;
+}
+
+.add-song {
+    width:60%;
+    padding-left:20%;
+    padding-right:20%;
+}
+
+.vote_list {
+    width: 50%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.song_vote_ranking .upvote-div {
+    width: 3%;
+    padding: 1%
+}
+
+.song_vote_ranking img {
+    width: 100%;
+    float:left;
+    height: 10%;
+    cursor:pointer;
+}
+
+.song_vote_ranking .upvotes {
+    height:33%;
+    padding-left:33%;
+}
+
+.song-info{
+    padding-top: 4%;
+    width: 95%;
+}
+
+.song_vote_ranking .title, .song_vote_ranking .artist {
+    width: 20%;
+    padding: 1%;
+}
+
+
+.add_song_widget {
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
