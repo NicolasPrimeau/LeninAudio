@@ -5,6 +5,20 @@ div, form, p {
     width:100%;
 }
 
+.header h3 {
+    font-size: 40px;
+    text-align:center;
+    margin: 0px;
+    padding-bottom: 10px;
+}
+
+.header h4 {
+    font-size: 20px;
+    text-align:center;
+    margin:0;
+    color: #686868 ;
+}
+
 div.field {
     float: left;
     width:31%;
@@ -17,22 +31,26 @@ div.field {
     padding-right:20%;
 }
 
-.vote_list {
-    width: 50%;
-    padding-top: 10px;
-    padding-bottom: 10px;
+.add-song button {
 }
 
 .song_vote_ranking .upvote-div {
-    width: 3%;
-    padding: 1%
+    width: 6%;
+    padding: 1%;
+}
+
+.upvote-div div {
+    padding:5px;
 }
 
 .song_vote_ranking img {
     width: 100%;
     float:left;
-    height: 10%;
     cursor:pointer;
+}
+
+.song_vote_ranking {
+    padding :10px;
 }
 
 .song_vote_ranking .upvotes {
@@ -41,17 +59,42 @@ div.field {
 }
 
 .song-info{
-    padding-top: 4%;
-    width: 95%;
+    padding-top: 6%;
+    width: 92%;
+}
+
+.song_vote_ranking .upvotes {
+    width: 5%;
+    padding: 1% 2% 1% 2%;
 }
 
 .song_vote_ranking .title, .song_vote_ranking .artist {
-    width: 20%;
-    padding: 1%;
+    width: 25%;
+    padding: 1% 2% 1% 2%;
 }
 
 
 .add_song_widget {
     padding-top: 50px;
     padding-bottom: 50px;
+}
+
+.rankings .ranking {
+    width: 50%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.song-container {
+    padding:5%;
+}
+
+.song-container .upvotes {
+    width: 5%;
+    padding: 1%
+}
+
+.song-container .title, .song-container .artist {
+    width: 25%;
+    padding: 1%;
 }

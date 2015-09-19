@@ -43,6 +43,7 @@ class Song:
             raise SongError("More than one song with title and artist!")
         elif f is None:
             self._find_song()
+            self.store()
         else:
             self.duration = f['duration']
             self.youtube_link = f['youtube_link']
@@ -75,6 +76,29 @@ class Song:
         update['youtube_link'] = self.youtube_link
         update['upvotes'] = self.upvotes
         coll.update(this, update, upsert=True)
+        client.close()
+
+    def downvote(self):
+        self.upvotes -= 1
+        self.__update_ranking()
+
+    def upvote(self):
+        self.upvotes += 1
+        self.__update_ranking()
+
+    def __update_ranking(self):
+        client = MongoClient()
+        coll = client[configurations.DB.NAME][configurations.DB.COLLECTIONS.SONGS]
+        this = dict()
+        this['artist'] = self.artist
+        this['title'] = self.title
+        update = dict()
+        update['upvotes'] = self.upvotes
+        update['artist'] = self.artist
+        update['title'] = self.title
+        update['duration'] = self.duration
+        update['youtube_link'] = self.youtube_link
+        coll.update(this, update, upsert=False)
         client.close()
 
 
