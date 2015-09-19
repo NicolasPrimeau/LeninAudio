@@ -19,9 +19,12 @@ update_t = -1
 def continuous_play():
     global playlist
     while True:
-        #playlist.play_next_song()
-        while not playlist.audioPlayer.is_stopped():
-            time.sleep(1)
+        if playlist.play_next_song():
+            while not playlist.audioPlayer.is_stopped():
+                time.sleep(1)
+        else:
+            for i in range(10):
+                time.sleep(1)
 
 
 def update_playlist():
