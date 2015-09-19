@@ -4,6 +4,7 @@ import pafy
 from subprocess import Popen, PIPE
 import configurations
 import time
+import glob
 
 
 class States:
@@ -25,9 +26,15 @@ class AudioPlayer:
     def play(self, song=None):
         if self.state == States.INITIAL or self.state == States.STOPPED:
             self.song = song
-            stream = pafy.new(song['youtube_link']).getbestaudio()
-            stream.download(filepath=configurations.BUFFERED_TEMP_LOCATION+"."+stream.extension)
-            self.mplayer = Popen(["mplayer", "-slave", "-really-quiet", configurations.BUFFERED_TEMP_LOCATION+"."+stream.extension], stdin=PIPE)
+            index = configurations.BUFFERED_TEMP_FILE_PREFIX + "-" + self.song['artist'] + "-" + self.song['title']
+            available = list(glob.glob(index + "*"))
+            if len(available) > 0:
+                location = available.pop(0)
+            else:
+                stream = pafy.new(song['youtube_link']).getbestaudio()
+                location = configurations.BUFFERED_TEMP_LOCATION+"."+stream.extension
+                stream.download(filepath=location)
+            self.mplayer = Popen(["mplayer", "-slave", "-really-quiet", location], stdin=PIPE)
             self.startup = int(time.time())
             self.state = States.PLAYING
         elif self.state == States.PAUSED:
