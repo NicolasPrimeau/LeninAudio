@@ -37,13 +37,11 @@
                 <div class="form-add-song-message"></div>
                 <form id="ajax-contact" method="post" action="/_submit_song" role="form" class="add-song">
                     <div class="field" >
-                        <input type="text" id="title" name="title" placeholder="Title" required>
-                    </div>
-
-                    <div class="field" >
                         <input type="text" id="artist" name="artist" placeholder="Artist" required>
                     </div>
-
+                    <div class="field" >
+                        <input type="text" id="title" name="title" placeholder="Title" required>
+                    </div>
                     <div class="field" >
                         <button type="button">Suggest</button>
                     </div>
@@ -53,11 +51,18 @@
 
             </div>
             <div class="rankings">
-                <div class="vote_list ranking">
+                <div class="ranking-wrapper">
+                    <h2>Ranking</h2>
+                    <div class="vote_list ranking">
+
+                    </div>
 
                 </div>
-                <div class="play_list ranking">
+                <div class="ranking-wrapper">
+                    <h2>Playlist</h2>
+                    <div class="play_list ranking">
 
+                    </div>
                 </div>
             </div>
         </div>
