@@ -44,6 +44,7 @@ class Playlist:
         self.recently_played = new_list
 
     def play_next_song(self):
+        print("wat")
         if len(self.song_list) == 0:
             self.update_song_list()
 

@@ -34,7 +34,6 @@ class AudioPlayer:
                 stream = pafy.new(song['youtube_link']).getbestaudio()
                 location = index+"."+stream.extension
                 stream.download(filepath=location)
-            print(location)
             self.mplayer = Popen(["mplayer", "-slave", "-really-quiet", location], stdin=PIPE)
             self.startup = int(time.time())
             self.state = States.PLAYING

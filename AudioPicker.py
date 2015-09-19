@@ -23,8 +23,7 @@ def continuous_play():
             while not playlist.audioPlayer.is_stopped():
                 time.sleep(1)
         else:
-            for i in range(10):
-                time.sleep(1)
+            time.sleep(10)
 
 
 def update_playlist():
