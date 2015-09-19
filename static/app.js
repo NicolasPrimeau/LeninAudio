@@ -52,6 +52,7 @@ $(document).ready(function(){
             else{
                 $(".player").append("<div class='song-info'><p class='upvotes'>" + song["upvotes"] + "</p><p class='artist'>" + song["artist"] + "</p><p class='title'>" + song["title"] + "</p></div>")
             }
+            
         });
     }
 
