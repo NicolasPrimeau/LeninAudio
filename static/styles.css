@@ -48,8 +48,8 @@ div.field {
 }
 
 .add-song {
-    width:732px;
-   
+    width:775px;
+    margin-left:28%;
 }
 
 .add-song input {
@@ -59,7 +59,7 @@ div.field {
 }
 
 .add-song button {
-    padding: 6px;
+    padding: 5px;
     width: 100px;
     font-size:20px;
 
