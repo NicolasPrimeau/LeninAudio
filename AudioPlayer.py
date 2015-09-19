@@ -29,11 +29,12 @@ class AudioPlayer:
             index = configurations.BUFFERED_TEMP_LOCATION+ "-" + self.song['artist'] + "-" + self.song['title']
             available = list(glob.glob(index + "*"))
             if len(available) > 0:
-                location = available.pop(0)
+                location = configurations.BUFFERED_TEMP_FILE_PATH + "/" + available.pop(0)
             else:
                 stream = pafy.new(song['youtube_link']).getbestaudio()
                 location = index+"."+stream.extension
                 stream.download(filepath=location)
+            print(location)
             self.mplayer = Popen(["mplayer", "-slave", "-really-quiet", location], stdin=PIPE)
             self.startup = int(time.time())
             self.state = States.PLAYING
