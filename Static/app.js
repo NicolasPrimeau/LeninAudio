@@ -45,6 +45,7 @@ $(document).ready(function(){
         var x = $.get( "/_get_currently_playing.json", function(song) {
             $(".player").empty();
             song = $.parseJSON(song);
+            console.log(song)
             if song.isEmptyObject():
                 $(".player").append("<div class='song-info'><p class='message'>Nothing currently playing. Go ahead, suggest something!</p></div>")
             else:
