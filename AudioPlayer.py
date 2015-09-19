@@ -26,7 +26,7 @@ class AudioPlayer:
     def play(self, song=None):
         if self.state == States.INITIAL or self.state == States.STOPPED:
             self.song = song
-            index = configurations.BUFFERED_TEMP_LOCATION + "-" + self.song['artist'] + "-" + self.song['title']
+            index = configurations.BUFFERED_TEMP_LOCATION + "-" + self.song['artist'].replace(" ", "_") + "-" + self.song['title'].replace(" ", "_")
             available = list(glob.glob(index + "*"))
             if len(available) > 0:
                 location = available.pop(0)
