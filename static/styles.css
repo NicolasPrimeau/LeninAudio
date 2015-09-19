@@ -97,7 +97,7 @@ div.field {
 }
 
 .song_vote_ranking .title, .song_vote_ranking .artist {
-    width: 25%;
+    width: 40%;
     padding: 1% 2% 1% 2%;
 }
 
@@ -127,7 +127,7 @@ div.field {
 }
 
 .song-container .title, .song-container .artist {
-    width: 25%;
+    width: 40%;
     padding: 1%;
 }
 
